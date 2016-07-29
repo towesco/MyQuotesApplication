@@ -1,0 +1,69 @@
+﻿.MyQuotesLoginPage {
+}
+
+.MyQuotesform {
+    font-family: Verdana, Geneva, sans-serif !important;
+    z-index: 1 !important;
+    background: #FFFFFF !important;
+    margin: 0 !important;
+    padding: 10px !important;
+    text-align: center !important;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24) !important;
+    border-radius: 1em !important;
+    width: 400px !important;
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 100000000000 !important;
+}
+
+    .MyQuotesform textarea {
+        font-family: Verdana, Geneva, sans-serif !important;
+        outline: 0 !important;
+        background: #f2f2f2 !important;
+        border: 0 !important;
+        margin: 0px !important;
+        padding: 10px !important;
+        width: 380px !important;
+        font-size: 14px !important;
+        border-radius: 10px !important;
+        height: 150px !important;
+    }
+
+    .MyQuotesform button {
+        text-transform: uppercase !important;
+        outline: 0 !important;
+        background: #4CAF50 !important;
+        width: 45% !important;
+        border: 0 !important;
+        padding: 10px !important;
+        margin: 5px !important;
+        color: #FFFFFF !important;
+        font-size: 14px !important;
+        -webkit-transition: all 0.3 ease !important;
+        transition: all 0.3 ease !important;
+        cursor: pointer !important;
+        border-radius: 5px !important;
+    }
+
+        .MyQuotesform button:hover, .form button:active, .form button:focus {
+            background: #43A047 !important;
+        }
+
+    .MyQuotesform .MyQuotesmessage {
+        margin: 15px 0 0 !important;
+        color: #b3b3b3 !important;
+        font-size: 12px !important;
+    }
+
+        .MyQuotesform .MyQuotesmessage a {
+            color: #4CAF50 !important;
+            text-decoration: none !important;
+        }
+
+    .MyQuotesform h4 {
+        font-size: 14px !important;
+        font-weight: bold !important;
+        padding: 5px !important;
+        margin: 5px !important;
+    }

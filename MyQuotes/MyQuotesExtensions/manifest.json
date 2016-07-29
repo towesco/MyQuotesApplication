@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "version": "1.0",
+  "name": "MyQuotes Chrome Extensions",
+  "description": "www.myquotes.org chrome extensions",
+  "background": {
+    "scripts": [ "event_script.js" ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_title": "Save to Quotes",
+    "default_icon": "16.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [ "contextMenus", "activeTab" ],
+  "icons": {
+    "16": "16.png",
+    "128": "128.png"
+  }
+}

@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "deneme";
+}
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log("geldi");
+            $("#myQuotesModal").modal("show");
+        })
+    </script>
+}
+<style type="text/css">
+    .MyQuotesLoginPage {
+        width: 360px;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 100000000000 !important;
+    }
+
+    .MyQuotesform {
+        position: relative;
+        z-index: 1;
+        background: #FFFFFF;
+        max-width: 360px;
+        margin: 0 auto 100px;
+        padding: 10px;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+
+        .MyQuotesform textarea {
+            font-family: "Roboto", sans-serif;
+            outline: 0;
+            background: #f2f2f2;
+            width: 100%;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .MyQuotesform button {
+            font-family: "Roboto", sans-serif;
+            text-transform: uppercase;
+            outline: 0;
+            background: #4CAF50;
+            width: 45%;
+            border: 0;
+            padding: 10px;
+            margin: 5px;
+            color: #FFFFFF;
+            font-size: 14px;
+            -webkit-transition: all 0.3 ease;
+            transition: all 0.3 ease;
+            cursor: pointer;
+        }
+
+            .MyQuotesform button:hover, .form button:active, .form button:focus {
+                background: #43A047;
+            }
+
+        .MyQuotesform .MyQuotesmessage {
+            margin: 15px 0 0;
+            color: #b3b3b3;
+            font-size: 12px;
+        }
+
+            .MyQuotesform .MyQuotesmessage a {
+                color: #4CAF50;
+                text-decoration: none;
+            }
+
+        .MyQuotesform h4 {
+            font-size: 14px;
+            font-weight: bold;
+        }
+</style>
+
+<div class="MyQuotesLoginPage">
+    <div class="MyQuotesform">
+        <h4>Save to Selected Quotes</h4>
+        <form class="login-form">
+            <textarea id="myQuotesText"></textarea>
+
+            <button id="MyQuotesSave">Save</button>
+            <button id="MyQuotesCancel">Cancel</button>
+            <p class="MyQuotesmessage">Kaydedildi</p>
+        </form>
+    </div>
+</div>

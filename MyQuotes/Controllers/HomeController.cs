@@ -8,6 +8,16 @@ namespace MyQuotes.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult deneme()
+        {
+            return View();
+        }
+
+        public ActionResult ornek()
+        {
+            return View();
+        }
+
         public ActionResult Index()
         {
             return View();
