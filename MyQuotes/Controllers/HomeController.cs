@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MyQuotes.Controllers
@@ -9,11 +7,6 @@ namespace MyQuotes.Controllers
     public class HomeController : Controller
     {
         public ActionResult deneme()
-        {
-            return View();
-        }
-
-        public ActionResult ornek()
         {
             return View();
         }

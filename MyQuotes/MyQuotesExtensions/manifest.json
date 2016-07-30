@@ -12,9 +12,10 @@
     "default_icon": "16.png",
     "default_popup": "popup.html"
   },
-  "permissions": [ "contextMenus", "activeTab" ],
+  "permissions": [ "contextMenus", "activeTab", "*://localhost/*" ],
   "icons": {
     "16": "16.png",
     "128": "128.png"
-  }
+  },
+  "web_accessible_resources": [ "loading.gif" ]
 }
