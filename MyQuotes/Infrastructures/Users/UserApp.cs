@@ -6,5 +6,7 @@ namespace MyQuotes.Infrastructure.Users
     public class UserApp : IdentityUser
     {
         public DateTime createTime { get; set; }
+
+        public string PicturePath { get; set; }
     }
 }

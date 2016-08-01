@@ -1,6 +1,10 @@
 ﻿.MyQuotesLoginPage {
 }
 
+.load {
+    width: 160px !important;
+}
+
 .MyQuotesform {
     font-family: Verdana, Geneva, sans-serif !important;
     z-index: 1 !important;
@@ -85,14 +89,10 @@
 
     .MyQuotesform .MyQuotesmessage {
         margin: 15px 0 0 !important;
-        color: #b3b3b3 !important;
+        color: red !important;
         font-size: 12px !important;
+        font-weight: bold;
     }
-
-        .MyQuotesform .MyQuotesmessage a {
-            color: #4CAF50 !important;
-            text-decoration: none !important;
-        }
 
     .MyQuotesform h3 {
         font-size: 16px !important;

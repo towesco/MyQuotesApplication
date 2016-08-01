@@ -78,3 +78,7 @@ C:\Users\fatih\Documents\Visual Studio 2015\Projects\MyQuotesApplication\MyQuote
 C:\Users\fatih\Documents\Visual Studio 2015\Projects\MyQuotesApplication\MyQuotes.Tests\bin\Debug\Microsoft.Owin.Security.xml
 C:\Users\fatih\Documents\Visual Studio 2015\Projects\MyQuotesApplication\MyQuotes.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
 C:\Users\fatih\Documents\Visual Studio 2015\Projects\MyQuotesApplication\MyQuotes.Tests\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\Users\fatih\documents\visual studio 2015\Projects\MyQuotesApplication\MyQuotes.Tests\bin\Debug\Microsoft.Owin.Security.Facebook.dll
+C:\Users\fatih\documents\visual studio 2015\Projects\MyQuotesApplication\MyQuotes.Tests\bin\Debug\Microsoft.Owin.Security.Facebook.xml
+C:\Users\fatih\documents\visual studio 2015\Projects\MyQuotesApplication\MyQuotes.Tests\bin\Debug\Facebook.dll
+C:\Users\fatih\documents\visual studio 2015\Projects\MyQuotesApplication\MyQuotes.Tests\bin\Debug\Facebook.xml
