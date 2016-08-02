@@ -1,0 +1,15 @@
+﻿<div ng-controller="ListController">
+
+    <ul ng-repeat="quotes in quotesList" style="padding-left:0px;">
+        <li class="media ">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object" src="../../Content/Pictures/quote-icon.png" alt="...">
+                </a>
+            </div>
+            <div class="media-body mediaWrapper  img-rounded">
+                {{quotes.quoteNote}}
+            </div>
+        </li>
+    </ul>
+</div>

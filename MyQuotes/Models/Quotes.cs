@@ -33,5 +33,8 @@ namespace MyQuotes.Models
 
         [JsonProperty("favorite")]
         public bool Favorite { get; set; }
+
+        [JsonProperty("createTime")]
+        public DateTime CreateTime { get; set; }
     }
 }

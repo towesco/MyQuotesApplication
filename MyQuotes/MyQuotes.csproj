@@ -230,16 +230,23 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Quotes.cs" />
     <Compile Include="Models\QuotesDb.cs" />
+    <Compile Include="Models\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client\ListController.js" />
+    <Content Include="Client\QuotesModul.js" />
+    <Content Include="Client\Views\List.html" />
+    <Content Include="Client\Views\TagList.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Pictures\facebook-icon.png" />
+    <Content Include="Content\Pictures\quote-icon.png" />
     <Content Include="MyQuotesExtensions\128.png" />
     <Content Include="MyQuotesExtensions\16.png" />
+    <Content Include="MyQuotesExtensions\error.png" />
     <Content Include="MyQuotesExtensions\event_script.js" />
     <Content Include="MyQuotesExtensions\fail.js" />
     <Content Include="MyQuotesExtensions\loading.gif" />
@@ -271,10 +278,14 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="MyQuotesExtensions\manifest.json" />
     <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="ClassDiagram.cd" />
+    <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Client\QuotesServices.js" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

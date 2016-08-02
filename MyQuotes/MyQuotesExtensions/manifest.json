@@ -17,5 +17,5 @@
     "16": "16.png",
     "128": "128.png"
   },
-  "web_accessible_resources": [ "loading.gif", "loading2.gif", "ok.png" ]
+  "web_accessible_resources": [ "loading.gif", "loading2.gif", "ok.png", "error.png" ]
 }

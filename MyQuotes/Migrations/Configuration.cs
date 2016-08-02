@@ -10,7 +10,6 @@ namespace MyQuotes.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(MyQuotes.Models.QuotesDb context)

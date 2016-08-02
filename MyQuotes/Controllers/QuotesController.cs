@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyQuotes.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -9,7 +10,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using MyQuotes.Models;
 
 namespace MyQuotes.Controllers
 {
@@ -18,9 +18,16 @@ namespace MyQuotes.Controllers
         private QuotesDb db = new QuotesDb();
 
         // GET: api/Quotes
-        public IQueryable<Quotes> GetQuotes()
+        [Route("api/quotes/GetQuotesById/{id}")]
+        public IQueryable<Quotes> GetQuotesById(string id)
         {
-            return db.Quotes;
+            return db.Quotes.Where(a => a.ProfilId == id).OrderByDescending(a => a.CreateTime).AsQueryable();
+        }
+
+        [Route("api/quotes/GetQuotes/{id}/{tag}")]
+        public IQueryable<Quotes> GetQuotes(string id, string tag)
+        {
+            return db.Quotes.Where(a => a.ProfilId == id && a.Tag == tag).OrderByDescending(a => a.CreateTime).AsQueryable();
         }
 
         // GET: api/Quotes/5
@@ -79,7 +86,7 @@ namespace MyQuotes.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            quotes.CreateTime = DateTime.Now;
             db.Quotes.Add(quotes);
             await db.SaveChangesAsync();
 
