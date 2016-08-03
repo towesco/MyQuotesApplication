@@ -5,13 +5,18 @@
 }
 
 body {
-    background: #E0EAFC; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #E0EAFC, #CFDEF3); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #E0EAFC, #CFDEF3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: url("Pictures/background.png");
+    background-repeat: repeat;
+}
+
+.icons {
+    margin: 0px 5px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 .mediaWrapper {
-    background-color: #f8f8f8;
+    background-color: white;
     border: 1px solid #a7b2c6;
     padding: 15px;
 }

@@ -30,7 +30,12 @@ namespace MyQuotes.Controllers
         {
             QuotesDb q = new QuotesDb();
 
+            int total = q.Quotes.Where(a => a.ProfilId == UserId).Count();
+
+            Tag t = new Tag { TagName = "Hepsi", TagCount = total };
+
             List<Tag> tagList = (from c in q.Quotes
+                                 where c.ProfilId == UserId
                                  group c by c.Tag into d
                                  select new Tag
                                  {
@@ -38,7 +43,12 @@ namespace MyQuotes.Controllers
                                      TagCount = d.Count()
                                  }).ToList();
 
-            ViewBag.tagList = tagList;
+            List<Tag> AllTagList = new List<Tag>();
+
+            AllTagList.Add(t);
+            AllTagList.AddRange(tagList);
+
+            ViewBag.tagList = AllTagList;
 
             return View();
         }

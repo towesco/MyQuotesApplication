@@ -7,8 +7,37 @@
                     <img class="media-object" src="../../Content/Pictures/quote-icon.png" alt="...">
                 </a>
             </div>
-            <div class="media-body mediaWrapper  img-rounded">
-                {{quotes.quoteNote}}
+            <div class="media-body ">
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        {{quotes.quoteNote}}
+                    </div>
+                    <div class="panel-footer">
+                        <div>
+                            <div class="pull-left">
+                                <i class="glyphicon glyphicon-link"></i>   <a href="{{quotes.url}}">{{UrlShort(quotes.url)}}</a>
+                            </div>
+
+                            <div class="pull-right">
+
+                                <a class="icons" ng-click="delete(quotes)"><i class="glyphicon glyphicon-trash"></i></a>
+                            </div>
+
+                            <div class="pull-right">
+
+                                <a ng-model="quotes.favorite" ng-if="quotes.favorite" class="icons" ng-click="activeFavorite(quotes)">
+                                    <i class="glyphicon glyphicon-heart"></i>
+                                </a>
+                                <a ng-model="quotes.favorite" ng-if="!quotes.favorite" class="icons" ng-click="activeFavorite(quotes)">
+                                    <i class="glyphicon glyphicon-heart-empty"></i>
+                                </a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </li>
     </ul>

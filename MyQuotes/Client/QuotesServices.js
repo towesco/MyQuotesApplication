@@ -5,13 +5,32 @@
             return $http.get(productUrl + "GetQuotesById/" + userId);
         };
 
+        var getAllByFavorites = function () {
+            return $http.get(productUrl + "GetQuotesByFavorites/" + userId);
+        };
+
+        var getTagMenu = function () {
+            return $http.get(productUrl + "GetQutesTagList/" + userId);
+        }
+
         var getAllByTag = function (tag) {
             return $http.get(productUrl + "GetQuotes/" + userId + "/" + tag);
         }
 
+        var destroy = function (id) {
+            return $http.delete(productUrl + id);
+        }
+        var activeFavorite = function (id) {
+            return $http.get(productUrl + "GetQutesFavoriteActive/" + userId + "/" + id);
+        }
+
         return {
             getAllById: getAllById,
-            getAllByTag: getAllByTag
+            getAllByTag: getAllByTag,
+            destroy: destroy,
+            activeFavorite: activeFavorite,
+            getTagMenu: getTagMenu,
+            getAllByFavorites: getAllByFavorites
         };
     }
 

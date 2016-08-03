@@ -24,10 +24,61 @@ namespace MyQuotes.Controllers
             return db.Quotes.Where(a => a.ProfilId == id).OrderByDescending(a => a.CreateTime).AsQueryable();
         }
 
+        [Route("api/quotes/GetQuotesByFavorites/{id}")]
+        public IQueryable<Quotes> GetQuotesByFavorites(string id)
+        {
+            return db.Quotes.Where(a => a.ProfilId == id && a.Favorite == true).OrderByDescending(a => a.CreateTime).AsQueryable();
+        }
+
         [Route("api/quotes/GetQuotes/{id}/{tag}")]
         public IQueryable<Quotes> GetQuotes(string id, string tag)
         {
             return db.Quotes.Where(a => a.ProfilId == id && a.Tag == tag).OrderByDescending(a => a.CreateTime).AsQueryable();
+        }
+
+        [Route("api/quotes/GetQutesFavoriteActive/{pid}/{id}")]
+        public IHttpActionResult GetQutesFavoriteActive(string pid, int id)
+        {
+            Quotes q = db.Quotes.Where(a => a.ProfilId == pid && a.Id == id).First();
+
+            if (q.Favorite)
+            {
+                q.Favorite = false;
+            }
+            else
+            {
+                q.Favorite = true;
+            }
+
+            db.SaveChanges();
+            return Ok(q);
+        }
+
+        [Route("api/quotes/GetQutesTagList/{id}")]
+        public IHttpActionResult GetQutesTagList(string id)
+        {
+            int total = db.Quotes.Where(a => a.ProfilId == id).Count();
+            Tag totalTag = new Tag { TagName = "Hepsi", TagCount = total, Url = "#/list" };
+            int favoriteTotal = db.Quotes.Where(a => a.ProfilId == id && a.Favorite == true).Count();
+
+            Tag totalFavorite = new Tag { TagName = "Favorilerim", TagCount = favoriteTotal, Url = "#/list/favorities" };
+            List<Tag> tagList = (from c in db.Quotes
+                                 where c.ProfilId == id
+                                 group c by c.Tag into d
+                                 select new Tag
+                                 {
+                                     TagName = d.Key,
+                                     TagCount = d.Count(),
+                                     Url = "#/tag/" + d.Key
+                                 }).ToList();
+
+            List<Tag> AllTagList = new List<Tag>();
+
+            AllTagList.Add(totalTag);
+            AllTagList.Add(totalFavorite);
+            AllTagList.AddRange(tagList);
+
+            return Ok(AllTagList);
         }
 
         // GET: api/Quotes/5

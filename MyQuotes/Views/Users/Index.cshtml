@@ -17,28 +17,18 @@
 }
 
 <div class="row">
-    <div class="col-md-2 myListTag">
+    <div class="col-md-3 myListTag">
         <h3>Etiketler</h3>
         <div class="list-group">
 
-            <a href="#/list" class="list-group-item">
+            <a ng-repeat="item in tagMenu" href="{{item.Url}}" class="list-group-item">
 
-                Hepsi
+                <span class="badge">{{item.TagCount}}</span>
+                {{item.TagName}}
             </a>
-
-            @foreach (Tag item in tagList)
-            {
-
-                <a href="#/tag/@item.TagName" class="list-group-item">
-
-                    <span class="badge">@item.TagCount</span>
-                    @item.TagName
-                </a>
-
-            }
         </div>
     </div>
-    <div class="col-md-10 myList">
+    <div class="col-md-9 myList">
         <h2>Notlarım</h2>
 
         <ng-view></ng-view>

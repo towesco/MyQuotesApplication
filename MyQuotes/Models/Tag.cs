@@ -9,5 +9,6 @@ namespace MyQuotes.Models
     {
         public string TagName { get; set; }
         public int TagCount { get; set; }
+        public string Url { get; set; }
     }
 }
