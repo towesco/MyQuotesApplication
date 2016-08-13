@@ -1,4 +1,8 @@
-﻿var html = '<div id="MyQuotes" class="reset-this MyQuotesform"> <h3 class="reset-this">Seçilen yazıyı kaydet</h3> <form class="reset-this login-form">  <div class="reset-this"> <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="reset-this" id="myQuotesText"></textarea></div> <div class="reset-this" id="MyQuotesOwnerWrapper"> <img class="reset-this" id="MyQuotesOwnerLoading" /> <input class="reset-this" placeHolder="yazı için etiket belirle" type="text" id="MyQuotesOwner" /> </div> <div class="reset-this"> <button class="reset-this" id="MyQuotesSave" type="button">KAYDET</button> <button id="MyQuotesCancel" class="reset-this" type="button">İPTAL</button> </div> <p class="reset-this MyQuotesmessage"></p> </form> </div>';
+﻿var header = chrome.i18n.getMessage("extHeader");
+var icon = chrome.extension.getURL('icon.png')
+$("#Quotesheader").attr("src", icon);
+
+var html = '<div id="MyQuotes" class="reset-this MyQuotesform"><div class="reset_this"><img src="' + icon + '" id="QuotesheaderIcon" class="reset-this"/><h3 class="reset-this">' + header + '</h3></div>  <form class="reset-this login-form">  <div class="reset-this"> <textarea placeHolder="Note almak için yazı ekleyiniz..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="reset-this" id="myQuotesText"></textarea></div> <div class="reset-this" id="MyQuotesOwnerWrapper"> <img class="reset-this" id="MyQuotesOwnerLoading" /> <input class="reset-this" placeHolder="yazı için etiket belirle..." type="text" id="MyQuotesOwner" /> </div> <div class="reset-this"> <button class="reset-this" id="MyQuotesSave" type="button">KAYDET</button> <button id="MyQuotesCancel" class="reset-this" type="button">İPTAL</button> </div> <p class="reset-this MyQuotesmessage"></p> </form> </div>';
 
 var load = '<div style="float:left !important;margin:5px;"><img style="width:32px;" src="' + chrome.extension.getURL('loading2.gif') + '" /></div> <div style="float:left !important;margin:10px 0px 0px 0px !important"><p class="reset-this">Kaydediliyor...</p></div> <i style="clear:both"></i>';
 var complete = '<div style="float:left !important;margin:5px;"><img style="width:32px;" src="' + chrome.extension.getURL('ok.png') + '" /></div> <div style="float:left !important;margin:10px 0px 0px 0px !important"><p class="reset-this" >kaydedildi.</p></div> <i style="clear:both"></i>';
@@ -46,7 +50,7 @@ $("#MyQuotesSave").click(function () {
     var tag = $("#MyQuotesOwner").val();
     var note = $("#myQuotesText").val();
     var validation = false;
-    if (jQuery.trim(tag).length > 0) {
+    if (jQuery.trim(tag).length > 0 && jQuery.trim(tag).length > 0) {
         validation = true;
     };
 
@@ -80,7 +84,7 @@ $("#MyQuotesSave").click(function () {
         })
     }
     else {
-        $(".MyQuotesmessage").show().text("Hoppa ! Etiket belirlemedin").fadeOut(2000);
+        $(".MyQuotesmessage").show().text("Hoppa ! doldurmak gereken yer var").fadeOut(2000);
     };
 
     console.log(quites);

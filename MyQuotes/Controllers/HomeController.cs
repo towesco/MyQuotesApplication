@@ -39,22 +39,28 @@ namespace MyQuotes.Controllers
 
         #endregion Identity Gets
 
-        //protected override void OnAuthentication(AuthenticationContext filterContext)
-        //{
-        //    if (filterContext.Principal.Identity.IsAuthenticated)
-        //    {
-        //        Response.Redirect("/User/index");
-        //    }
-
-        //    base.OnAuthentication(filterContext);
-        //}
-
         public ActionResult deneme()
         {
             return View();
         }
 
         public ActionResult Index()
+
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("/Users/index");
+            }
+
+            return View();
+        }
+
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult Contact()
         {
             return View();
         }

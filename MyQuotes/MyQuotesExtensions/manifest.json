@@ -1,21 +1,24 @@
 {
   "manifest_version": 2,
   "version": "1.0",
-  "name": "MyQuotes Chrome Extensions",
-  "description": "www.myquotes.org chrome extensions",
+  "name": "PutNotes",
+  "description": "PutNotes Extensions",
   "background": {
     "scripts": [ "event_script.js" ],
     "persistent": true
   },
+  "default_locale": "tr",
   "browser_action": {
-    "default_title": "Save to Quotes",
-    "default_icon": "16.png",
-    "default_popup": "popup.html"
+    "default_title": "__MSG_extName__",
+    "default_icon": "16.png"
   },
   "permissions": [ "contextMenus", "activeTab", "*://localhost/*", "cookies" ],
   "icons": {
     "16": "16.png",
-    "128": "128.png"
+    "32": "32.png",
+    "64": "64.png",
+    "128": "128.png",
+    "512": "512.png"
   },
-  "web_accessible_resources": [ "loading.gif", "loading2.gif", "ok.png", "error.png" ]
+  "web_accessible_resources": [ "icon.png", "loading.gif", "loading2.gif", "ok.png", "error.png" ]
 }

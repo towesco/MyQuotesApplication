@@ -8,6 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body ng-controller="bodyController">
+
     <div class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
@@ -16,14 +17,35 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("MyQuotes.com", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <div>
+                    <div class="pull-left">
+                        <a href="@Url.Action("Index","Home")">
+                            <img style="margin:7px 0px 0px 0px" src="@Url.Content("~/Content/Pictures/webicon.png")" />
+                        </a>
+                    </div>
+                    <div class="pull-left">
+
+                        @Html.ActionLink("PutNotes.net", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Anasayfa", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Hakkında", "About", "Home")</li>
+                    <li>@Html.ActionLink("İletişim", "Contact", "Home")</li>
                 </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> @User.Identity.Name <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("SignOut", "Users")">Çıkış yap</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul></ul>
             </div>
         </div>
     </div>

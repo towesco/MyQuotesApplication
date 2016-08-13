@@ -4,6 +4,20 @@
     background: linear-gradient(to left, #E0EAFC, #CFDEF3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.colorMenu {
+    width: 31px;
+    height: 30px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.colorMenuMini {
+    width: 16px;
+    height: 16px;
+    margin: 2px;
+    cursor: pointer;
+}
+
 body {
     background-image: url("Pictures/background.png");
     background-repeat: repeat;
@@ -33,4 +47,103 @@ body {
     .myListTag h3 {
         border-bottom: 2px solid #bac7db;
         padding-bottom: 10px;
+    }
+
+.no-js #loader {
+    display: none;
+}
+
+.js #loader {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 0;
+}
+
+.se-pre-con {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(Pictures/loading.gif) center no-repeat #fff;
+    opacity: 0.6;
+}
+
+.box1 {
+    background-color: #fff;
+    border: 1px solid #e5e0e0;
+    color: #333;
+    box-shadow: none;
+}
+
+    .box1 a {
+        color: #333;
+    }
+
+.box2 {
+    background-color: #f85032;
+    border: 1px solid #d34930;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+    .box2 a {
+        color: #f85032;
+    }
+
+.box3 {
+    background-color: #00d2ff;
+    border: 1px solid #11a2bf;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+    .box3 a {
+        color: #00d2ff;
+    }
+
+.box4 {
+    background-color: #ffb347;
+    border: 1px solid #c49048;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+    .box4 a {
+        color: #ffb347;
+    }
+
+.box5 {
+    background-color: #666600;
+    border: 1px solid #2d2d06;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+    .box5 a {
+        color: #666600;
+    }
+
+.box6 {
+    background-color: #614385;
+    border: 1px solid #3f2c56;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+    .box6 a {
+        color: #614385;
+    }
+
+.box7 {
+    background-color: #DD5E89;
+    border: 1px solid #99415e;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+    .box7 a {
+        color: #DD5E89;
     }

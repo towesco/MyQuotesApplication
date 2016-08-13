@@ -228,24 +228,35 @@
     <Compile Include="Infrastructures\Users\UserAppDbContext.cs" />
     <Compile Include="Infrastructures\Users\UserAppManager.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Color.cs" />
     <Compile Include="Models\Quotes.cs" />
     <Compile Include="Models\QuotesDb.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client\Directives.js" />
     <Content Include="Client\ListController.js" />
     <Content Include="Client\QuotesModul.js" />
+    <Content Include="Client\TagUpdateController.js" />
+    <Content Include="Client\Views\EditTag.html" />
     <Content Include="Client\Views\List.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Pictures\webicon.png" />
     <Content Include="Content\Pictures\background.png" />
     <Content Include="Content\Pictures\facebook-icon.png" />
+    <Content Include="Content\Pictures\loading.gif" />
     <Content Include="Content\Pictures\quote-icon.png" />
     <Content Include="MyQuotesExtensions\128.png" />
     <Content Include="MyQuotesExtensions\16.png" />
+    <Content Include="MyQuotesExtensions\256.png" />
+    <Content Include="MyQuotesExtensions\icon.png" />
+    <Content Include="MyQuotesExtensions\32.png" />
+    <Content Include="MyQuotesExtensions\512.png" />
+    <Content Include="MyQuotesExtensions\64.png" />
     <Content Include="MyQuotesExtensions\error.png" />
     <Content Include="MyQuotesExtensions\event_script.js" />
     <Content Include="MyQuotesExtensions\fail.js" />
@@ -277,15 +288,20 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="MyQuotesExtensions\manifest.json" />
+    <Content Include="Scripts\angular-animate.js" />
+    <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular-route.min.js" />
-    <Content Include="Scripts\angular.js" />
-    <Content Include="Scripts\angular.min.js" />
-    <Content Include="Scripts\angular.min.js.map" />
     <Content Include="ClassDiagram.cd" />
     <Content Include="Scripts\angular-route.min.js.map" />
     <Content Include="Client\QuotesServices.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="MyQuotesExtensions\_locales\en\messages.json" />
+    <Content Include="MyQuotesExtensions\_locales\tr\messages.json" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -294,6 +310,8 @@
     <Content Include="Scripts\jquery-3.1.0.slim.js" />
     <Content Include="Scripts\jquery-3.1.0.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.min.css" />
+    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -319,6 +337,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\deneme.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

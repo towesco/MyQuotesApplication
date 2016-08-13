@@ -9,19 +9,44 @@
 @section Scripts
 {
 
+    <script type="text/javascript">
+    </script>
     <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/angular-animate.js"></script>
     <script src="~/Client/QuotesModul.js"></script>
     <script src="~/Client/QuotesServices.js"></script>
     <script src="~/Client/ListController.js"></script>
 
+    <script src="~/Client/Directives.js"></script>
 }
-
+<div class="se-pre-con" loading></div>
 <div class="row">
     <div class="col-md-3 myListTag">
-        <h3>Etiketler</h3>
+        <h3>Menü</h3>
         <div class="list-group">
 
-            <a ng-repeat="item in tagMenu" href="{{item.Url}}" class="list-group-item">
+            <a ng-repeat="item in mainTagList" href="{{item.Url}}" class="list-group-item list-group-item-warning text-capitalize">
+
+                <span class="badge">{{item.TagCount}}</span>
+                {{item.TagName}}
+            </a>
+        </div>
+        <h4>Renkler</h4>
+
+        <div>
+
+            <a href="#/color/{{item}}" ng-repeat="item in colorList">
+
+                <div class="img-rounded pull-left colorMenu" ng-class="item"></div>
+            </a>
+
+            <div class="clearfix"></div>
+        </div>
+
+        <h4>Etiketler</h4>
+        <div class="list-group">
+
+            <a ng-repeat="item in tagList" href="{{item.Url}}" class="list-group-item text-capitalize">
 
                 <span class="badge">{{item.TagCount}}</span>
                 {{item.TagName}}
@@ -29,9 +54,9 @@
         </div>
     </div>
     <div class="col-md-9 myList">
-        <h2>Notlarım</h2>
+        <h2 class="text-capitalize">{{header}}</h2>
 
-        <ng-view></ng-view>
+        <div id="ngView" ng-view></div>
     </div>
 </div>
 <input ng-model="userId" id="userId" value="@ViewData["userId"]" type="hidden" />

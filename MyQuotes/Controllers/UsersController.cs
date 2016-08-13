@@ -1,4 +1,7 @@
-﻿using MyQuotes.Models;
+﻿using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using MyQuotes.Infrastructure.Users;
+using MyQuotes.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,22 +15,44 @@ namespace MyQuotes.Controllers
     [Authorize]
     public class UsersController : Controller
     {
+        #region Identity Gets
+
+        public UserAppManager usermanager
+        {
+            get { return HttpContext.GetOwinContext().GetUserManager<UserAppManager>(); }
+        }
+
+        public RoleAppManager rolemanager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().GetUserManager<RoleAppManager>();
+            }
+        }
+
+        public IAuthenticationManager Authen
+        {
+            get { return HttpContext.GetOwinContext().Authentication; }
+        }
+
+        #endregion Identity Gets
+
         public string UserId { get; set; }
 
-        protected override void OnAuthentication(AuthenticationContext filterContext)
+        public UsersController()
         {
-            ClaimsIdentity ident = HttpContext.User.Identity as ClaimsIdentity;
-            var id = ident.Claims.Where(a => a.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").First().Value;
-
-            this.UserId = id;
-            ViewData["userId"] = UserId; ;
-
-            base.OnAuthentication(filterContext);
         }
 
         // GET: Users
         public ActionResult Index()
         {
+            ExternalLoginInfo e = Authen.GetExternalLoginInfo();
+
+            ClaimsIdentity ident = User.Identity as ClaimsIdentity;
+            var id = ident.Claims.Where(a => a.Issuer == "LOCAL AUTHORITY" && a.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").First().Value;
+
+            this.UserId = id;
+            ViewData["userId"] = UserId; ;
             QuotesDb q = new QuotesDb();
 
             int total = q.Quotes.Where(a => a.ProfilId == UserId).Count();
@@ -51,6 +76,13 @@ namespace MyQuotes.Controllers
             ViewBag.tagList = AllTagList;
 
             return View();
+        }
+
+        public ActionResult SignOut()
+        {
+            Authen.SignOut();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

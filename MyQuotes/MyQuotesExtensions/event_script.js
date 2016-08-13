@@ -11,7 +11,7 @@ var TYPES_CONTEXT = {
 var createProperties = {
     "type": TYPES_CONTEXT_MENU_ITEM.NORMAL,
     "id": ID_CONTEXT_MENU_ITEM_HELLO,
-    "title": "Save to Quotes",
+    "title": chrome.i18n.getMessage("extName"),
     "contexts": [TYPES_CONTEXT.SELECTION],
     "targetUrlPatterns": []
 }
@@ -20,8 +20,6 @@ var cookie = {
     url: "http://localhost:64481/",
     name: "MyQuotes"
 };
-
-;
 
 function Success(info, profilId) {
     chrome.tabs.insertCSS(null, { file: "popup.css" }, function () {
@@ -72,6 +70,26 @@ function Fail() {
         console.log("fail.js load");
     });
 }
+
+chrome.browserAction.onClicked.addListener(function () {
+    chrome.cookies.get(cookie, function (c) {
+        if (c != null) {
+            var id = c.value.split("=")[1];
+
+            var info = { selectionText: "" }
+
+            if (id != null) {
+                Success(info, id);
+            }
+            else {
+                Fail();
+            }
+        }
+        else {
+            Fail();
+        }
+    });
+})
 
 chrome.contextMenus.create(createProperties, function () {
     if (!chrome.runtime.lastError) {

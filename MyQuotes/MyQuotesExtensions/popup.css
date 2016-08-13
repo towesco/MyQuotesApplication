@@ -5,6 +5,11 @@
     width: 160px !important;
 }
 
+#QuotesheaderIcon {
+    float: left !important;
+    margin-left: 15px !important;
+}
+
 .MyQuotesform {
     font-family: Verdana, Geneva, sans-serif !important;
     z-index: 1 !important;
@@ -98,10 +103,11 @@
         font-size: 16px !important;
         font-weight: bold !important;
         padding: 5px !important;
-        margin: 5px !important;
+        margin: 2px 5px 5px 0px !important;
         font-family: Verdana !important;
         color: #687484 !important;
         display: block !important;
+        float: left !important;
     }
 
 #MyQuotesOwnerWrapper {

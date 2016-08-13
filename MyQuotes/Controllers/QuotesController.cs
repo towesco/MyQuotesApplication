@@ -1,4 +1,5 @@
-﻿using MyQuotes.Models;
+﻿using MyQuotes.Infrastructures;
+using MyQuotes.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -33,7 +34,15 @@ namespace MyQuotes.Controllers
         [Route("api/quotes/GetQuotes/{id}/{tag}")]
         public IQueryable<Quotes> GetQuotes(string id, string tag)
         {
-            return db.Quotes.Where(a => a.ProfilId == id && a.Tag == tag).OrderByDescending(a => a.CreateTime).AsQueryable();
+            //  System.Threading.Thread.Sleep(3000);
+            return db.Quotes.AsEnumerable().Where(a => a.ProfilId == id && Helper.UrlSeo(a.Tag) == tag).OrderByDescending(a => a.CreateTime).AsQueryable();
+        }
+
+        [Route("api/quotes/GetQuotesByColor/{id}/{color}")]
+        public IQueryable<Quotes> GetQuotesByColor(string id, string color)
+        {
+            //  System.Threading.Thread.Sleep(3000);
+            return db.Quotes.Where(a => a.ProfilId == id && a.Color == color).OrderByDescending(a => a.CreateTime).AsQueryable();
         }
 
         [Route("api/quotes/GetQutesFavoriteActive/{pid}/{id}")]
@@ -58,7 +67,7 @@ namespace MyQuotes.Controllers
         public IHttpActionResult GetQutesTagList(string id)
         {
             int total = db.Quotes.Where(a => a.ProfilId == id).Count();
-            Tag totalTag = new Tag { TagName = "Hepsi", TagCount = total, Url = "#/list" };
+            Tag totalTag = new Tag { TagName = "Tüm notlarım", TagCount = total, Url = "#/list" };
             int favoriteTotal = db.Quotes.Where(a => a.ProfilId == id && a.Favorite == true).Count();
 
             Tag totalFavorite = new Tag { TagName = "Favorilerim", TagCount = favoriteTotal, Url = "#/list/favorities" };
@@ -76,9 +85,30 @@ namespace MyQuotes.Controllers
 
             AllTagList.Add(totalTag);
             AllTagList.Add(totalFavorite);
+
             AllTagList.AddRange(tagList);
 
             return Ok(AllTagList);
+        }
+
+        [Route("api/quotes/GetQutesTagUpdate/{pid}/{id}/{tag}")]
+        public IHttpActionResult GetQutesTagUpdate(string pid, int id, string tag)
+        {
+            Quotes q = db.Quotes.Where(a => a.ProfilId == pid && a.Id == id).First();
+
+            q.Tag = tag;
+            db.SaveChanges();
+            return Ok();
+        }
+
+        [Route("api/quotes/GetUpdateColor/{pid}/{id}/{color}")]
+        public IHttpActionResult GetUpdateColor(string pid, int id, string color)
+        {
+            Quotes q = db.Quotes.Where(a => a.ProfilId == pid && a.Id == id).First();
+
+            q.Color = color;
+            db.SaveChanges();
+            return Ok();
         }
 
         // GET: api/Quotes/5
@@ -138,6 +168,7 @@ namespace MyQuotes.Controllers
                 return BadRequest(ModelState);
             }
             quotes.CreateTime = DateTime.Now;
+            quotes.Color = "box1";
             db.Quotes.Add(quotes);
             await db.SaveChangesAsync();
 

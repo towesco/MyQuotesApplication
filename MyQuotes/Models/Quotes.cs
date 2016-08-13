@@ -25,16 +25,26 @@ namespace MyQuotes.Models
 
         [JsonProperty("url")]
         [StringLength(500)]
-        public string Url { get; set; }
+        public string Url
+        {
+            get; set;
+        }
 
         [JsonProperty("tag")]
         [StringLength(500)]
-        public string Tag { get; set; }
+        public string Tag
+        {
+            get; set;
+        }
 
         [JsonProperty("favorite")]
         public bool Favorite { get; set; }
 
         [JsonProperty("createTime")]
         public DateTime CreateTime { get; set; }
+
+        [StringLength(100)]
+        [JsonProperty("color")]
+        public string Color { get; set; }
     }
 }

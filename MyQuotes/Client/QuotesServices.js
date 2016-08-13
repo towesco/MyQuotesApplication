@@ -1,6 +1,5 @@
 ﻿(function (app) {
     var quotesService = function ($http, productUrl, userId) {
-        console.log(userId);
         var getAllById = function () {
             return $http.get(productUrl + "GetQuotesById/" + userId);
         };
@@ -17,6 +16,13 @@
             return $http.get(productUrl + "GetQuotes/" + userId + "/" + tag);
         }
 
+        var getAllByColor = function (color) {
+            return $http.get(productUrl + "GetQuotesByColor/" + userId + "/" + color);
+        }
+        var getUpdateTag = function (id, tag) {
+            return $http.get(productUrl + "GetQutesTagUpdate/" + userId + "/" + id + "/" + tag);
+        }
+
         var destroy = function (id) {
             return $http.delete(productUrl + id);
         }
@@ -24,13 +30,26 @@
             return $http.get(productUrl + "GetQutesFavoriteActive/" + userId + "/" + id);
         }
 
+        var getUpdateColor = function (id, color) {
+            var data = {
+                pid: userId,
+                color: color,
+                id: id
+            };
+
+            return $http.get(productUrl + "GetUpdateColor/" + data.pid + "/" + data.id + "/" + data.color);
+        };
+
         return {
             getAllById: getAllById,
             getAllByTag: getAllByTag,
             destroy: destroy,
             activeFavorite: activeFavorite,
             getTagMenu: getTagMenu,
-            getAllByFavorites: getAllByFavorites
+            getAllByFavorites: getAllByFavorites,
+            getUpdateTag: getUpdateTag,
+            getUpdateColor: getUpdateColor,
+            getAllByColor: getAllByColor
         };
     }
 

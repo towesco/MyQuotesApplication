@@ -1,15 +1,15 @@
 ﻿<div ng-controller="ListController">
 
-    <ul ng-repeat="quotes in quotesList" style="padding-left:0px;">
-        <li class="media ">
-            <div class="media-left">
+    <ul style="padding-left:0px;">
+        <li ng-repeat="quotes in quotesList" class="media ">
+            <!--<div class="media-left">
                 <a href="#">
                     <img class="media-object" src="../../Content/Pictures/quote-icon.png" alt="...">
                 </a>
-            </div>
+            </div>-->
             <div class="media-body ">
 
-                <div class="panel panel-default">
+                <div class="panel panel-default" ng-class="quotes.color">
                     <div class="panel-body">
 
                         {{quotes.quoteNote}}
@@ -17,23 +17,31 @@
                     <div class="panel-footer">
                         <div>
                             <div class="pull-left">
-                                <i class="glyphicon glyphicon-link"></i>   <a href="{{quotes.url}}">{{UrlShort(quotes.url)}}</a>
+                                <a target="_blank" href="{{quotes.url}}"><i class="glyphicon glyphicon-link"></i> {{UrlShort(quotes.url)}}</a>
+                                <span class="label label-default">{{quotes.tag}}</span>
                             </div>
 
                             <div class="pull-right">
 
-                                <a class="icons" ng-click="delete(quotes)"><i class="glyphicon glyphicon-trash"></i></a>
+                                <a ng-hide="quotes.colorMenuShow" ng-click="showColorMenu(quotes)" class="icons" data-toggle="tooltip" data-placement="top" title="renk ata" tooltip><i class="glyphicon glyphicon-asterisk"></i></a>
+
+                                <a data-toggle="tooltip" data-placement="top" title="favorilerden çıkar" ng-model="quotes.favorite" ng-if="quotes.favorite" class="icons" ng-click="activeFavorite(quotes)" tooltip><i class="glyphicon glyphicon-heart"></i></a>
+
+                                <a data-toggle="tooltip" data-placement="top" title="favorilere ekle" ng-model="quotes.favorite" ng-if="!quotes.favorite" class="icons" ng-click="activeFavorite(quotes)" tooltip><i class="glyphicon glyphicon-heart-empty"></i></a>
+
+                                <a data-toggle="tooltip" data-placement="top" title="etiketi güncelle" class="icons" ng-click="updateTag(quotes)" tooltip><i class="glyphicon glyphicon-tag"></i></a>
+
+                                <a data-toggle="tooltip" data-placement="top" title="sil" class="icons" ng-click="delete(quotes)" tooltip><i class="glyphicon glyphicon-trash"></i></a>
                             </div>
 
-                            <div class="pull-right">
+                            <div ng-hide="!quotes.colorMenuShow" class="pull-right">
 
-                                <a ng-model="quotes.favorite" ng-if="quotes.favorite" class="icons" ng-click="activeFavorite(quotes)">
-                                    <i class="glyphicon glyphicon-heart"></i>
-                                </a>
-                                <a ng-model="quotes.favorite" ng-if="!quotes.favorite" class="icons" ng-click="activeFavorite(quotes)">
-                                    <i class="glyphicon glyphicon-heart-empty"></i>
+                                <a ng-click="updateColor(quotes,item)" ng-repeat="item in colorList">
+
+                                    <span class="pull-left colorMenuMini" ng-class="item"></span>
                                 </a>
                             </div>
+
                             <div class="clearfix"></div>
                         </div>
                     </div>
@@ -41,4 +49,6 @@
             </div>
         </li>
     </ul>
+
+    <div ng-include="'/Client/Views/EditTag.html'"></div>
 </div>
