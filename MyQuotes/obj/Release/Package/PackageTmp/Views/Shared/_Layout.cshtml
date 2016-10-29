@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Putnotes.net</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body ng-controller="bodyController">
+    <div class="page-wrap">
+        <div class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div>
+                        <div class="pull-left">
+                            <a href="@Url.Action("Index","Home")">
+                                <img style="margin:7px 0px 0px 0px" src="@Url.Content("~/Content/Pictures/webicon.png")" />
+                            </a>
+                        </div>
+                        <div class="pull-left">
+
+                            @Html.ActionLink("PutNotes.net", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Anasayfa", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Hakkında", "About", "Home")</li>
+                        <li>@Html.ActionLink("İletişim", "Contact", "Home")</li>
+                    </ul>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> @User.Identity.Name <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("SignOut", "Users")">Çıkış yap</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            @RenderBody()
+        </div>
+        <div class="push"></div>
+    </div>
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 col-md-offset-4" style="margin-top: 10px;">
+
+                    <div>
+                        <ul class="list-inline list-unstyled">
+                            <li>@Html.ActionLink("Anasayfa", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Hakkında", "About", "Home")</li>
+                            <li>@Html.ActionLink("İletişim", "Contact", "Home")</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12">
+                        <p>www.putnotes.net  © 2015</p>
+                    </div>
+                </div>
+                @*<div class="col-md-4  text-left hidden-xs hidden-sm">
+                        <ul class="list-unstyled">
+                            <li><i style="color: white;" class="glyphicon glyphicon-envelope"></i><a href="mailto:towesco2010@hotmail.com">towesco2010@hotmail.com</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3  hidden-xs hidden-sm">
+
+                        <ul class="list-unstyled list-inline">
+                            <li><a href="https://www.facebook.com/wordboxes.net/"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>*@
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -18,7 +18,7 @@ namespace MyQuotes.Models
         {
             get
             {
-                return Helper.UrlSeo(url);
+                return HelperPut.UrlSeo(url);
             }
             set
             {

@@ -90,7 +90,7 @@ body {
 }
 
     .box2 a {
-        color: #f85032;
+        color: #d34930;
     }
 
 .box3 {
@@ -101,7 +101,7 @@ body {
 }
 
     .box3 a {
-        color: #00d2ff;
+        color: #11a2bf;
     }
 
 .box4 {
@@ -112,7 +112,7 @@ body {
 }
 
     .box4 a {
-        color: #ffb347;
+        color: #c49048;
     }
 
 .box5 {
@@ -123,7 +123,7 @@ body {
 }
 
     .box5 a {
-        color: #666600;
+        color: #2d2d06;
     }
 
 .box6 {
@@ -134,7 +134,7 @@ body {
 }
 
     .box6 a {
-        color: #614385;
+        color: #3f2c56;
     }
 
 .box7 {
@@ -145,5 +145,49 @@ body {
 }
 
     .box7 a {
-        color: #DD5E89;
+        color: #99415e;
     }
+
+/*//////////////////////////////////////////////////////////////footer///////////////////////////////////////////////////////////////*/
+html, body {
+    height: 100% !important;
+}
+
+.page-wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -110px;
+}
+
+.footer, .push {
+    height: 110px;
+}
+
+footer {
+    background: #457fca; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #457fca, #5691c8); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #457fca, #5691c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 20px 100px !important;
+    width: 100%;
+}
+
+    footer ul li a, footer ul li span {
+        color: white !important;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    footer p {
+        color: white;
+    }
+
+    footer i {
+        color: #ffffff;
+        font-size: 20px !important;
+        height: 38px;
+        vertical-align: middle;
+        width: 30px;
+        padding-top: 9px;
+    }
+/*//////////////////////////////////////////////////////////////footer///////////////////////////////////////////////////////////////*/

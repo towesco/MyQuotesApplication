@@ -23,8 +23,9 @@ namespace MyQuotes
                 LoginPath = new PathString("/Home/Index"),
                 LogoutPath = new PathString("/Home/Index"),
                 CookieName = "myquotes",
-                ExpireTimeSpan = TimeSpan.FromDays(120),
+                ExpireTimeSpan = TimeSpan.FromDays(600)
             });
+
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             #region FacebookLogin
@@ -33,6 +34,7 @@ namespace MyQuotes
             {
                 AppId = "310003379339696",
                 AppSecret = "11185fb6dc9da45ac821a69ccd2bb213",
+
                 Provider = new FacebookAuthenticationProvider()
                 {
                     OnAuthenticated = context =>
@@ -42,8 +44,8 @@ namespace MyQuotes
                         return Task.FromResult(true);
                     }
                 },
-                SignInAsAuthenticationType = DefaultAuthenticationTypes.ExternalCookie,
             };
+            f.SignInAsAuthenticationType = DefaultAuthenticationTypes.ExternalCookie;
             f.Scope.Add("email");
             // f.Scope.Add("email");
             app.UseFacebookAuthentication(f);

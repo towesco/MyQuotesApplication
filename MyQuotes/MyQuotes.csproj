@@ -142,12 +142,20 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -214,7 +222,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\bosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuotesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -245,6 +252,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Pictures\bir.png" />
+    <Content Include="Content\Pictures\dort.png" />
+    <Content Include="Content\Pictures\iki.png" />
+    <Content Include="Content\Pictures\uc.png" />
     <Content Include="Content\Pictures\webicon.png" />
     <Content Include="Content\Pictures\background.png" />
     <Content Include="Content\Pictures\facebook-icon.png" />
@@ -252,11 +263,13 @@
     <Content Include="Content\Pictures\quote-icon.png" />
     <Content Include="MyQuotesExtensions\128.png" />
     <Content Include="MyQuotesExtensions\16.png" />
+    <Content Include="MyQuotesExtensions\24.png" />
     <Content Include="MyQuotesExtensions\256.png" />
-    <Content Include="MyQuotesExtensions\icon.png" />
+    <Content Include="MyQuotesExtensions\48.png" />
     <Content Include="MyQuotesExtensions\32.png" />
     <Content Include="MyQuotesExtensions\512.png" />
     <Content Include="MyQuotesExtensions\64.png" />
+    <Content Include="MyQuotesExtensions\auto.js" />
     <Content Include="MyQuotesExtensions\error.png" />
     <Content Include="MyQuotesExtensions\event_script.js" />
     <Content Include="MyQuotesExtensions\fail.js" />
@@ -302,6 +315,7 @@
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="MyQuotesExtensions\_locales\en\messages.json" />
     <Content Include="MyQuotesExtensions\_locales\tr\messages.json" />
+    <None Include="Properties\PublishProfiles\putnotesFileZilla.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -332,13 +346,14 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\deneme.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Home\claims.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

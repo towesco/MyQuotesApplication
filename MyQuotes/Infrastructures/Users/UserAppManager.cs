@@ -22,6 +22,7 @@ namespace MyQuotes.Infrastructure.Users
         {
             UserAppManager manager = new UserAppManager(new UserStore<UserApp>(new UserAppDbContext()));
             manager.UserValidator = new UserValidator<UserApp>(manager) { AllowOnlyAlphanumericUserNames = false, RequireUniqueEmail = true };
+
             manager.PasswordValidator = new PasswordValidator()
             {
                 RequiredLength = 6,

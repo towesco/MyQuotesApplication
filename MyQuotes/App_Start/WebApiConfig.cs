@@ -9,6 +9,7 @@ namespace MyQuotes
     {
         public static void Register(HttpConfiguration config)
         {
+            config.EnableCors();
             // Web API configuration and services
             config.MapHttpAttributeRoutes();
             // Web API routes

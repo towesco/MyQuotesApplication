@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MyQuotes.Infrastructure.Users;
+using MyQuotes.Infrastructures;
 using MyQuotes.Models;
 using System;
 using System.Collections.Generic;
@@ -46,10 +47,13 @@ namespace MyQuotes.Controllers
         // GET: Users
         public ActionResult Index()
         {
-            ExternalLoginInfo e = Authen.GetExternalLoginInfo();
+            ViewBag.Title = "Notlarım";
+
+            //  ExternalLoginInfo e = Authen.GetExternalLoginInfo();
 
             ClaimsIdentity ident = User.Identity as ClaimsIdentity;
-            var id = ident.Claims.Where(a => a.Issuer == "LOCAL AUTHORITY" && a.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").First().Value;
+
+            var id = ident.Claims.Where(a => a.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").First().Value;
 
             this.UserId = id;
             ViewData["userId"] = UserId; ;
@@ -80,6 +84,7 @@ namespace MyQuotes.Controllers
 
         public ActionResult SignOut()
         {
+            HelperPut.DeleteExtensionsCookie();
             Authen.SignOut();
 
             return RedirectToAction("Index", "Home");

@@ -1,0 +1,193 @@
+﻿.homeBackground {
+    background: #E0EAFC; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #E0EAFC, #CFDEF3); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #E0EAFC, #CFDEF3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.colorMenu {
+    width: 31px;
+    height: 30px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.colorMenuMini {
+    width: 16px;
+    height: 16px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+body {
+    background-image: url("Pictures/background.png");
+    background-repeat: repeat;
+}
+
+.icons {
+    margin: 0px 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.mediaWrapper {
+    background-color: white;
+    border: 1px solid #a7b2c6;
+    padding: 15px;
+}
+
+.myList h2 {
+    border-bottom: 2px solid #bac7db;
+    padding-bottom: 10px;
+}
+
+.myListTag {
+    margin-top: 7px;
+}
+
+    .myListTag h3 {
+        border-bottom: 2px solid #bac7db;
+        padding-bottom: 10px;
+    }
+
+.no-js #loader {
+    display: none;
+}
+
+.js #loader {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 0;
+}
+
+.se-pre-con {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(Pictures/loading.gif) center no-repeat #fff;
+    opacity: 0.6;
+}
+
+.box1 {
+    background-color: #fff;
+    border: 1px solid #e5e0e0;
+    color: #333;
+    box-shadow: none;
+}
+
+    .box1 a {
+        color: #333;
+    }
+
+.box2 {
+    background-color: #f85032;
+    border: 1px solid #d34930;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+    .box2 a {
+        color: #d34930;
+    }
+
+.box3 {
+    background-color: #00d2ff;
+    border: 1px solid #11a2bf;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+    .box3 a {
+        color: #11a2bf;
+    }
+
+.box4 {
+    background-color: #ffb347;
+    border: 1px solid #c49048;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+    .box4 a {
+        color: #c49048;
+    }
+
+.box5 {
+    background-color: #666600;
+    border: 1px solid #2d2d06;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+    .box5 a {
+        color: #2d2d06;
+    }
+
+.box6 {
+    background-color: #614385;
+    border: 1px solid #3f2c56;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+    .box6 a {
+        color: #3f2c56;
+    }
+
+.box7 {
+    background-color: #DD5E89;
+    border: 1px solid #99415e;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+    .box7 a {
+        color: #99415e;
+    }
+
+/*//////////////////////////////////////////////////////////////footer///////////////////////////////////////////////////////////////*/
+html, body {
+    height: 100% !important;
+}
+
+.page-wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -110px;
+}
+
+.footer, .push {
+    height: 110px;
+}
+
+footer {
+    background: #457fca; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #457fca, #5691c8); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #457fca, #5691c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 20px 100px !important;
+    width: 100%;
+}
+
+    footer ul li a, footer ul li span {
+        color: white !important;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    footer p {
+        color: white;
+    }
+
+    footer i {
+        color: #ffffff;
+        font-size: 20px !important;
+        height: 38px;
+        vertical-align: middle;
+        width: 30px;
+        padding-top: 9px;
+    }
+/*//////////////////////////////////////////////////////////////footer///////////////////////////////////////////////////////////////*/

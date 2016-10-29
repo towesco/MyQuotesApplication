@@ -1,7 +1,7 @@
 ﻿<div ng-controller="ListController">
 
-    <ul style="padding-left:0px;">
-        <li ng-repeat="quotes in quotesList" class="media ">
+    <ul ng-if="quotesList.length>0" style="padding-left:0px;">
+        <li ng-repeat="quotes in quotesList" class="media " style="margin-top:0px !important">
             <!--<div class="media-left">
                 <a href="#">
                     <img class="media-object" src="../../Content/Pictures/quote-icon.png" alt="...">
@@ -9,7 +9,7 @@
             </div>-->
             <div class="media-body ">
 
-                <div class="panel panel-default" ng-class="quotes.color">
+                <div class="panel panel-default" ng-class="quotes.color" style="margin-bottom:0px;">
                     <div class="panel-body">
 
                         {{quotes.quoteNote}}
@@ -49,6 +49,9 @@
             </div>
         </li>
     </ul>
+    <div ng-if="quotesList.length==0" class="alert alert-info">
+        <i class="glyphicon glyphicon-exclamation-sign"></i><strong> Yazı bulunmamaktadır...</strong>
+    </div>
 
     <div ng-include="'/Client/Views/EditTag.html'"></div>
 </div>

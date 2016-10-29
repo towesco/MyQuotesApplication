@@ -10,13 +10,24 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 
 namespace MyQuotes.Controllers
 {
+    //[EnableCors(origins: "http://www.putnotes.net", headers: "*", methods: "*")]
     public class QuotesController : ApiController
     {
         private QuotesDb db = new QuotesDb();
+
+        [HttpGet]
+        [Route("api/quotes/GetTagList/{id}")]
+        public IHttpActionResult GetTagList(string id, string term)
+        {
+            List<string> filter = db.Quotes.Where(a => a.ProfilId == id && a.Tag.StartsWith(term)).Select(a => a.Tag).Distinct().ToList();
+
+            return Json<List<string>>(filter);
+        }
 
         // GET: api/Quotes
         [Route("api/quotes/GetQuotesById/{id}")]
@@ -35,7 +46,7 @@ namespace MyQuotes.Controllers
         public IQueryable<Quotes> GetQuotes(string id, string tag)
         {
             //  System.Threading.Thread.Sleep(3000);
-            return db.Quotes.AsEnumerable().Where(a => a.ProfilId == id && Helper.UrlSeo(a.Tag) == tag).OrderByDescending(a => a.CreateTime).AsQueryable();
+            return db.Quotes.AsEnumerable().Where(a => a.ProfilId == id && HelperPut.UrlSeo(a.Tag) == tag).OrderByDescending(a => a.CreateTime).AsQueryable();
         }
 
         [Route("api/quotes/GetQuotesByColor/{id}/{color}")]
@@ -175,6 +186,7 @@ namespace MyQuotes.Controllers
             return CreatedAtRoute("DefaultApi", new { id = quotes.Id }, quotes);
         }
 
+        [HttpDelete]
         // DELETE: api/Quotes/5
         [ResponseType(typeof(Quotes))]
         public async Task<IHttpActionResult> DeleteQuotes(int id)

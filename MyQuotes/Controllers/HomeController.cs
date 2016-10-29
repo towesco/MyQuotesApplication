@@ -5,13 +5,11 @@ using Microsoft.Owin.Security;
 using MyQuotes.Infrastructure.Users;
 using MyQuotes.Infrastructures;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Mvc.Filters;
 
 namespace MyQuotes.Controllers
 {
@@ -44,12 +42,21 @@ namespace MyQuotes.Controllers
             return View();
         }
 
+        public ActionResult claims()
+        {
+            ClaimsIdentity ident = User.Identity as ClaimsIdentity;
+
+            return View(ident.Claims.ToList());
+        }
+
         public ActionResult Index()
 
         {
-            if (User.Identity.IsAuthenticated)
+            ViewBag.Title = "Anasayfa";
+
+            if (HelperPut.IsUserLogin())
             {
-                Response.Redirect("/Users/index");
+                return RedirectToAction("Index", "Users");
             }
 
             return View();
@@ -57,10 +64,17 @@ namespace MyQuotes.Controllers
 
         public ActionResult About()
         {
+            ViewBag.Title = "Hakkımızda";
             return View();
         }
 
         public ActionResult Contact()
+        {
+            ViewBag.Title = "İletişim";
+            return View();
+        }
+
+        public ActionResult Error()
         {
             return View();
         }
@@ -87,8 +101,7 @@ namespace MyQuotes.Controllers
 
             if (user == null)
             {
-                var token = HttpContext.GetOwinContext()
-                                  .Authentication.GetExternalIdentity(DefaultAuthenticationTypes.ExternalCookie).FindFirstValue("FacebookAccessToken");
+                var token = Authen.GetExternalIdentity(DefaultAuthenticationTypes.ExternalCookie).FindFirstValue("FacebookAccessToken");
                 var fb = new FacebookClient(token);
 
                 dynamic infoEmail = fb.Get("/me?fields=email");
@@ -107,7 +120,7 @@ namespace MyQuotes.Controllers
                 {
                     await usermanager.AddLoginAsync(user.Id, info.Login);
 
-                    Helper.CreateExtensionsCookie(user.Id);
+                    HelperPut.CreateExtensionsCookie(user.Id);
                 }
                 else
                 {
@@ -116,12 +129,13 @@ namespace MyQuotes.Controllers
             }
             else
             {
-                Helper.CreateExtensionsCookie(user.Id);
+                HelperPut.CreateExtensionsCookie(user.Id);
             }
 
             ClaimsIdentity identity = await usermanager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
             identity.AddClaims(info.ExternalIdentity.Claims);
-            HttpContext.GetOwinContext().Authentication.SignIn(new AuthenticationProperties { IsPersistent = true, ExpiresUtc = DateTime.Now.AddDays(120) }, identity);
+            Authen.SignOut();
+            Authen.SignIn(new AuthenticationProperties { IsPersistent = true, ExpiresUtc = DateTimeOffset.MaxValue }, identity);
 
             //return Redirect(ReturnUrl ?? "/User/Index");
             return RedirectToAction("Index", "Users");

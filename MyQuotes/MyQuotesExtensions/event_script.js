@@ -17,8 +17,8 @@ var createProperties = {
 }
 
 var cookie = {
-    url: "http://localhost:64481/",
-    name: "MyQuotes"
+    url: "http://www.putnotes.net",
+    name: "Putnotes"
 };
 
 function Success(info, profilId) {
@@ -54,6 +54,7 @@ function Success(info, profilId) {
         code += "text.value=" + veri;
         console.log(code);
         chrome.tabs.executeScript({ code: code }, function () {
+            chrome.tabs.executeScript(null, { file: "auto.js", runAt: "document_start", }, function () { });
         });
     });
 }
@@ -72,44 +73,40 @@ function Fail() {
 }
 
 chrome.browserAction.onClicked.addListener(function () {
-    chrome.cookies.get(cookie, function (c) {
-        if (c != null) {
-            var id = c.value.split("=")[1];
-
-            var info = { selectionText: "" }
-
-            if (id != null) {
-                Success(info, id);
-            }
-            else {
-                Fail();
-            }
-        }
-        else {
-            Fail();
-        }
-    });
+    var tabObject = {
+        url: "http://www.putnotes.net"
+    }
+    chrome.tabs.create(tabObject, function (tab) {
+        console.log("geldi");
+    })
 })
 
 chrome.contextMenus.create(createProperties, function () {
     if (!chrome.runtime.lastError) {
         chrome.contextMenus.onClicked.addListener(function (info, tab) {
             console.log(info);
-            chrome.cookies.get(cookie, function (c) {
-                if (c != null) {
-                    var id = c.value.split("=")[1];
 
-                    if (id != null) {
-                        Success(info, id);
+            if (info.pageUrl.indexOf("https") > -1) {
+                alert("Maalesef bu sayfa not almaya izin vermemektedir.")
+            }
+            else {
+                chrome.cookies.get(cookie, function (c) {
+                    console.log(c);
+                    if (c != null) {
+                        var id = c.value.split("=")[1];
+
+                        if (id != null) {
+                            Success(info, id);
+                        }
+                        else {
+                            Fail();
+                        }
                     }
                     else {
                         Fail();
                     }
-                }
-                else {
-                    Fail();
-                }
-            });
+                });
+            }
         })
     };
 })

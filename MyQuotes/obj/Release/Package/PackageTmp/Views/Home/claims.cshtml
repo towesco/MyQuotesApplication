@@ -1,0 +1,13 @@
+﻿@using System.Security.Claims;
+@model List<Claim>
+
+<h1>@User.Identity.Name</h1>
+<h2>@User.Identity.IsAuthenticated</h2>
+    @foreach (Claim item in Model)
+    {
+
+        <p>@item.Issuer</p>
+        <p>@item.OriginalIssuer</p>
+        <p>@item.Subject</p>
+        <hr />
+    }

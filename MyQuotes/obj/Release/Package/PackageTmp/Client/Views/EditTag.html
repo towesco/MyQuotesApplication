@@ -1,0 +1,17 @@
+﻿<div class="modal fade" id="EditTagModul" tabindex="-1" role="dialog" aria-labelledby="EditTagModul-label" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="EditTagModul-label">Etiket Güncelle</h4>
+            </div>
+            <div class="modal-body">
+                <input class="form-control" id="txtTagg" type="text" ng-model="txt.tag" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">İptal</button>
+                <button type="button" ng-click="tagUpdate(txt.tag)" class="btn btn-primary">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>

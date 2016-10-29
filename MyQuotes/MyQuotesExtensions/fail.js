@@ -1,4 +1,4 @@
-﻿var html = '<div id="MyQuotes" class="reset-this MyQuotesform"> <h3 class="reset-this">MyQuotes.com</h3> <hr /> <h3 style="color:red;" class="reset-this">Giriş Yapılamadı !</h3>  <a style="margin:10px 0px;display:block;" href="#">Giriş yapmak için tıklayınız.</a> </div>';
+﻿var html = '<div id="MyQuotes" class="reset-this MyQuotesform"> <div style="display:block!important" class="reset-this">www.putnotes.net</div> <br /> <div style="color:red;display:block!important" class="reset-this">Giriş Yapılamadı !</div><br/>  <a style="display:block!important" class="reset-this"  href="http://www.putnotes.net">Giriş yapmak için tıklayınız.</a> </div>';
 
 $("#MyQuotes").is(function () {
     $(".MyQuotesform").remove();

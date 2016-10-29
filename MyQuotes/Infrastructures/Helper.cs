@@ -1,19 +1,66 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using MyQuotes.Infrastructure.Users;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Web;
 
 namespace MyQuotes.Infrastructures
 {
-    public class Helper
+    public class HelperPut
     {
         public static void CreateExtensionsCookie(string id)
         {
-            HttpCookie cookie = new HttpCookie("MyQuotes");
+            HttpCookie cookie = new HttpCookie("Putnotes");
 
             cookie["Id"] = id.ToString();
 
+            cookie.Expires = DateTime.Now.AddDays(600);
             HttpContext.Current.Response.Cookies.Add(cookie);
+        }
+
+        public static void DeleteExtensionsCookie()
+        {
+            HttpCookie cookie = new HttpCookie("Putnotes");
+
+            cookie.Expires = DateTime.Now.AddDays(-1);
+            HttpContext.Current.Response.Cookies.Add(cookie);
+        }
+
+        public static bool IsUserLogin()
+        {
+            bool IsUser = false;
+
+            if (!HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                HttpCookie cookie = HttpContext.Current.Request.Cookies["Putnotes"];
+
+                if (cookie != null)
+                {
+                    var Id = cookie["Id"];
+
+                    UserAppManager userManager = HttpContext.Current.GetOwinContext().GetUserManager<UserAppManager>();
+
+                    UserApp user = userManager.FindById(Id);
+
+                    if (user != null)
+                    {
+                        ClaimsIdentity identity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                        HttpContext.Current.GetOwinContext().Authentication.SignIn(new AuthenticationProperties { IsPersistent = true, ExpiresUtc = DateTimeOffset.MaxValue }, identity);
+
+                        IsUser = true;
+                    }
+                }
+            }
+            else
+            {
+                IsUser = true;
+            }
+
+            return IsUser;
         }
 
         public static string UrlSeo(string Metin)
