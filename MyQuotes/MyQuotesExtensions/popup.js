@@ -1,5 +1,5 @@
 ﻿var header = chrome.i18n.getMessage("extHeader");
-var icon = chrome.extension.getURL('32.png')
+var icon = chrome.extension.getURL('32.png');
 $("#Quotesheader").attr("src", icon);
 
 var html = '<div id="MyQuotes" class="reset-this MyQuotesform"><div class="reset_this"><img src="' + icon + '" id="QuotesheaderIcon" class="reset-this"/><h3 class="reset-this">' + header + '</h3></div>  <form class="reset-this login-form">  <div class="reset-this"> <textarea placeHolder="Note almak için yazı ekleyiniz..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="reset-this" id="myQuotesText"></textarea></div> <div class="reset-this" id="MyQuotesOwnerWrapper"> <img class="reset-this" id="MyQuotesOwnerLoading" /> <input class="reset-this" placeHolder="yazı için etiket belirle..." type="text" id="MyQuotesOwner" /> </div> <div class="reset-this"> <button class="reset-this" id="MyQuotesSave" type="button">KAYDET</button> <button id="MyQuotesCancel" class="reset-this" type="button">İPTAL</button> </div> <p class="reset-this MyQuotesmessage"></p> </form> </div>';
@@ -39,13 +39,14 @@ $("#MyQuotesOwnerLoading").hide().attr("src", loading)
 
 var siteUrl = "http://localhost:64481";
 var OnlineSiteUrl = "http://www.putnotes.net";
+var azureUrl = "https://putnotesap.azurewebsites.net";
 //console.log("profil:" + profilId);
 //$("#MyQuotesOwner").autocomplete({
 //    source: OnlineSiteUrl + "/api/quotes/GetTagList/" + profilId,
 //    minLength: 1,
 //    search: function (event, ui) {
 //        $('#MyQuotesOwnerLoading').show();
-//        console.log("searching");
+//        console.log("arıyorrr lannn");
 //    },
 //    open: function (event, ui) {
 //        $('#MyQuotesOwnerLoading').hide();
@@ -85,7 +86,7 @@ $("#MyQuotesSave").click(function () {
         };
 
         $.ajax({
-            url: OnlineSiteUrl + "/api/quotes",
+            url: azureUrl + "/api/putnotes",
             data: quites,
             method: "POST",
             success: function () {

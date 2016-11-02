@@ -22,7 +22,7 @@
 <div class="se-pre-con" loading></div>
 <div class="row">
     <div class="col-md-3 myListTag">
-        <h3>Menü</h3>
+        <h3>@MyQuotes.Resource.HomeResource.Menu</h3>
         <div class="list-group">
 
             <a ng-repeat="item in mainTagList" href="{{item.Url}}" class="list-group-item list-group-item-warning text-capitalize">
@@ -31,7 +31,7 @@
                 {{item.TagName}}
             </a>
         </div>
-        <h4>Renkler</h4>
+        <h4>@MyQuotes.Resource.HomeResource.Colors</h4>
 
         <div>
 
@@ -43,7 +43,9 @@
             <div class="clearfix"></div>
         </div>
 
-        <h4>Etiketler</h4>
+        <h4>
+            @MyQuotes.Resource.HomeResource.Tags
+        </h4>
         <div class="list-group">
 
             <a ng-repeat="item in tagList" href="{{item.Url}}" class="list-group-item text-capitalize">
@@ -60,3 +62,9 @@
     </div>
 </div>
 <input ng-model="userId" id="userId" value="@ViewData["userId"]" type="hidden" />
+
+@Html.Hidden("AssignColor", MyQuotes.Resource.HomeResource.AssignColor)
+@Html.Hidden("EjectFavorite", MyQuotes.Resource.HomeResource.EjectFavorite)
+@Html.Hidden("Remove", MyQuotes.Resource.HomeResource.Remove)
+@Html.Hidden("AddFavorite", MyQuotes.Resource.HomeResource.AddFavorite)
+@Html.Hidden("UpdateTag", MyQuotes.Resource.HomeResource.UpdateTag)

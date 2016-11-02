@@ -23,15 +23,15 @@
 
                             <div class="pull-right">
 
-                                <a ng-hide="quotes.colorMenuShow" ng-click="showColorMenu(quotes)" class="icons" data-toggle="tooltip" data-placement="top" title="renk ata" tooltip><i class="glyphicon glyphicon-asterisk"></i></a>
+                                <a ng-hide="quotes.colorMenuShow" data-resource="AssignColor" ng-click="showColorMenu(quotes)" class="icons" data-toggle="tooltip" data-placement="top" title="" tooltip><i class="glyphicon glyphicon-asterisk"></i></a>
 
-                                <a data-toggle="tooltip" data-placement="top" title="favorilerden çıkar" ng-model="quotes.favorite" ng-if="quotes.favorite" class="icons" ng-click="activeFavorite(quotes)" tooltip><i class="glyphicon glyphicon-heart"></i></a>
+                                <a data-toggle="tooltip" data-placement="top" data-resource="AddFavorite" title="" ng-model="quotes.favorite" ng-if="quotes.favorite" class="icons" ng-click="activeFavorite(quotes)" tooltip><i class="glyphicon glyphicon-heart"></i></a>
 
-                                <a data-toggle="tooltip" data-placement="top" title="favorilere ekle" ng-model="quotes.favorite" ng-if="!quotes.favorite" class="icons" ng-click="activeFavorite(quotes)" tooltip><i class="glyphicon glyphicon-heart-empty"></i></a>
+                                <a data-toggle="tooltip" data-placement="top" data-resource="EjectFavorite" title="" ng-model="quotes.favorite" ng-if="!quotes.favorite" class="icons" ng-click="activeFavorite(quotes)" tooltip><i class="glyphicon glyphicon-heart-empty"></i></a>
 
-                                <a data-toggle="tooltip" data-placement="top" title="etiketi güncelle" class="icons" ng-click="updateTag(quotes)" tooltip><i class="glyphicon glyphicon-tag"></i></a>
+                                <a data-toggle="tooltip" data-placement="top" data-resource="UpdateTag" title="" class="icons" ng-click="updateTag(quotes)" tooltip><i class="glyphicon glyphicon-tag"></i></a>
 
-                                <a data-toggle="tooltip" data-placement="top" title="sil" class="icons" ng-click="delete(quotes)" tooltip><i class="glyphicon glyphicon-trash"></i></a>
+                                <a data-toggle="tooltip" data-placement="top" data-resource="Remove" title="" class="icons" ng-click="delete(quotes)" tooltip><i class="glyphicon glyphicon-trash"></i></a>
                             </div>
 
                             <div ng-hide="!quotes.colorMenuShow" class="pull-right">

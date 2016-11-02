@@ -1,6 +1,6 @@
 ﻿console.log("autodan gelddi:" + profilId);
 $("#MyQuotesOwner").autocomplete({
-    source: OnlineSiteUrl + "/api/quotes/GetTagList/" + profilId,
+    source: azureUrl + "/api/putnotes/GetTagList/" + profilId,
     minLength: 1,
     search: function (event, ui) {
         $('#MyQuotesOwnerLoading').show();

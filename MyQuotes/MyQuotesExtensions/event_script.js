@@ -86,10 +86,10 @@ chrome.contextMenus.create(createProperties, function () {
         chrome.contextMenus.onClicked.addListener(function (info, tab) {
             console.log(info);
 
-            if (info.pageUrl.indexOf("https") > -1) {
-                alert("Maalesef bu sayfa not almaya izin vermemektedir.")
-            }
-            else {
+            //if (info.pageUrl.indexOf("https") > -1) {
+            //    alert("Maalesef bu sayfa not almaya izin vermemektedir.")
+            //}
+            //else {
                 chrome.cookies.get(cookie, function (c) {
                     console.log(c);
                     if (c != null) {
@@ -106,7 +106,7 @@ chrome.contextMenus.create(createProperties, function () {
                         Fail();
                     }
                 });
-            }
+            //}
         })
     };
 })
